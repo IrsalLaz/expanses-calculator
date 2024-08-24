@@ -15,8 +15,14 @@ return new class extends Migration
             $table->id();
             $table->integer('amount');
             $table->date('date');
-            $table->foreignId('type_id');
-            $table->foreignId('category_id');
+            $table->foreignId('type_id')->constrained(
+                table: 'types',
+                indexName: 'trans_type_id'
+            );
+            $table->foreignId('category_id')->constrained(
+                table: 'categories',
+                indexName: 'trans_category_id'
+            );
             $table->timestamps();
         });
     }
