@@ -11,7 +11,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'type_id'];
+    protected $fillable = ['category', 'type_id'];
 
     /**
      * Get the type that owns the Category
