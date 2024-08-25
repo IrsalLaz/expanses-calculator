@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// handle GET and POST requests
+Route::resource('/', TransactionController::class);
+
+// handle DELETE requests
+Route::delete('/{transaction}', [TransactionController::class, 'destroy'])->name('transaction.delete');
